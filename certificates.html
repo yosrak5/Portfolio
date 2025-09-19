@@ -1,0 +1,79 @@
+<div class="section-header">
+    <h2>My Certificates</h2>
+    <p>Recognitions of my learning and professional development</p>
+</div>
+
+<div class="certificates-grid">
+    <div class="certificate-card">
+        <h3>AWS Certified Data Analytics</h3>
+        <p class="issuer">Amazon Web Services</p>
+        <p class="date">Issued: June 2023</p>
+    </div>
+    
+    <div class="certificate-card">
+        <h3>Google Data Analytics Professional</h3>
+        <p class="issuer">Google</p>
+        <p class="date">Issued: March 2023</p>
+    </div>
+    
+    <div class="certificate-card">
+        <h3>Machine Learning Specialist</h3>
+        <p class="issuer">Coursera</p>
+        <p class="date">Issued: January 2023</p>
+    </div>
+    
+    <div class="certificate-card">
+        <h3>Data Engineering with Apache Kafka</h3>
+        <p class="issuer">Confluent</p>
+        <p class="date">Issued: November 2022</p>
+    </div>
+    
+    <div class="certificate-card">
+        <h3>Deep Learning Specialization</h3>
+        <p class="issuer">deeplearning.ai</p>
+        <p class="date">Issued: September 2022</p>
+    </div>
+    
+    <div class="certificate-card">
+        <h3>DevOps Engineering</h3>
+        <p class="issuer">Linux Foundation</p>
+        <p class="date">Issued: July 2022</p>
+    </div>
+</div>
+
+<style>
+    .certificates-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .certificate-card {
+        background: #f5f6fa;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .certificate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .certificate-card h3 {
+        color: #4a90e2;
+        margin-bottom: 12px;
+    }
+
+    .certificate-card .issuer {
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    .certificate-card .date {
+        color: #888;
+        font-size: 0.9rem;
+    }
+</style>

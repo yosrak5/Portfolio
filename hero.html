@@ -1,0 +1,292 @@
+<section class="hero animate">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">About Me!</h1>
+            <p class="hero-subtitle">
+                I'm Yosra Karoui, a data engineer and analyst passionate about transforming raw data into meaningful insights.
+            </p>
+            <p class="hero-description">
+                My journey bridges data engineering and analytics, with hands-on experience in cloud platforms and intelligent data pipelines.
+                I've learned to adapt quickly, connect the dots across tools and systems, and deliver reliable solutions that support operational excellence.
+                I see data not just as numbers, but as a story waiting to be uncovered, and I love building the systems that make that story accessible.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-resume">View Resume</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="image-container">
+                <div class="main-image-box">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="Yosra Karoui" class="profile-image">
+                    <div class="gradient-bg"></div>
+                    <div class="quote-box">
+                        <p class="quote-text">
+                            "The people who are crazy enough to think they can change the world are the ones who do." 
+                            <br>– Steve Jobs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Hero Section Styles */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+        margin-bottom: 60px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+
+    .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .hero-text {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 40px;
+    }
+
+    .hero-title {
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        font-weight: 400;
+        max-width: 570px;
+        margin-bottom: 24px;
+        color: var(--dark);
+        opacity: 0;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        font-weight: 300;
+        max-width: 570px;
+        margin-bottom: 40px;
+        color: #555;
+        line-height: 1.7;
+        opacity: 0;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        opacity: 0;
+    }
+
+    .btn-resume {
+        padding: 12px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-resume:hover {
+        box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+        min-width: 300px;
+        position: relative;
+    }
+
+    .image-container {
+        border-radius: 12px;
+        width: 400px;
+        position: relative;
+    }
+
+    .main-image-box {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 460px;
+        box-shadow: 32px 48px 0px rgba(74, 144, 226, 0.2);
+        opacity: 0;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    .gradient-bg {
+        width: 200px;
+        height: 200px;
+        z-index: 0;
+        position: absolute;
+        right: -5%;
+        opacity: 0;
+        bottom: -5%;
+        background: transparent;
+        background-image: radial-gradient(var(--primary) 2px, transparent 0);
+        background-size: 15px 13px;
+    }
+
+    .quote-box {
+        z-index: 2;
+        position: absolute;
+        bottom: -5%;
+        width: 100%;
+        right: 25%;
+        overflow: hidden;
+        opacity: 0;
+        background: var(--primary);
+        border-radius: 8px;
+        padding: 16px;
+        max-width: 280px;
+    }
+
+    .quote-text {
+        font-weight: 300;
+        font-size: 0.85rem;
+        color: white;
+        line-height: 1.5;
+    }
+
+    /* Responsive Design for Hero */
+    @media (max-width: 900px) {
+        .hero-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .hero-text {
+            padding-right: 0;
+            margin-bottom: 60px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+        }
+        
+        .hero-image {
+            justify-content: center;
+        }
+        
+        .image-container {
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .quote-box {
+            right: 0;
+            bottom: -10%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero-title {
+            font-size: 2.4rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .main-image-box {
+            height: 380px;
+        }
+        
+        .hero {
+            padding: 25px;
+        }
+    }
+</style>
+
+<script>
+    // GSAP Animation for Hero Section
+    document.addEventListener('DOMContentLoaded', function() {
+        // Only run if this is the active section
+        if (document.getElementById('hero').offsetParent !== null) {
+            const tl = gsap.timeline();
+            
+            // Text animations
+            tl.to('.hero-title', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            })
+            .to('.hero-subtitle', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.4')
+            .to('.hero-description', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.4')
+            .to('.hero-buttons', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.4')
+            
+            // Image animations
+            .to('.main-image-box', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.6')
+            .to('.profile-image', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.6')
+            .to('.gradient-bg', {
+                opacity: 0.6,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.6')
+            .to('.quote-box', {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, '-=0.4');
+        }
+    });
+</script>

@@ -1,363 +1,473 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			
-			#intro {
-				display: flex;
-				align-items: center;
-				gap: 20px;
-			}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosra Karoui - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --secondary: #6c5ce7;
+            --accent: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --gray: #dfe6e9;
+            --transition: all 0.3s ease;
+        }
 
-			#intro img {
-				border-radius: 50%;
-				border: 5px solid white;
-				width: 200px;
-				height: 200px;
-				object-fit: cover;
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-			}
-			p {
-				line-height: 1.4; /* Adjust this value as needed */
-				margin: 0; /* Remove extra spacing around the paragraph */
-			}
-			
-		</style>
-	</head>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-	<body class="is-preload">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
 
-		<!-- Wrapper >
-			<div id="wrapper" class="fade-in">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-				<!-- Intro -->
-		
-        <div id="intro">
-			
-				<img src="images\profile_pic.jpg" alt="Yosra's picture" class="profile-image" />
-			
-			<h2>Hello 👋   I'm Yosra !  </h2>
-			<!--h2>Data Engineer & Analyst  </h2-->
-			<ul style="list-style-position: outside; text-align: left; margin-left: 20px;">
-				<p><br>Driven by curiosity and a love for problem-solving 🧐✨<br>
-					<br>Transforming raw data into meaningful insights 📊🔍 <br><!--and creating solutions that make data work smarter 🤖💡.-->
-					<br>Always eager to explore, learn, and innovate 🚀📚🌟<br>
-				</p>
-			</ul>
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
 
-			<!-- Button to Download CV >
-<a href="https://github.com/yosyos1998/CV/blob/main/Yosra_KAROUI_CV%20(3).pdf" download="Yosra_Karoui_CV.pdf" class="button">Download CV</a>
-	<div class="about__buttons">
-		<a download="" href="assets\PDF\Yosra_KAROUI_CV.pdf" class="button button--flex">
-			Download CV  <i class="uil uil-download-alt button__icon"></i>
-		</a>
-		<!-- a download="" href="assets\PDF\Yosra_KAROUI_CV_Fr.pdf" class="button button--flex">
-			Download CV (French) <i class="uil uil-download-alt button__icon"></i>
-		</a>
-	</div>
-	
-			
-						
-						<!--ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul-->
-					</div>
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-				<!-- Header >
-					x-->
+        .logo span {
+            color: var(--secondary);
+        }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-							<li><a href="generic.html">Certificates </a></li>
-							<li><a href="elements.html">Skills</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-outlook"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands mail-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.linkedin.com/in/yosra-k-948594234/" class="icon brands fa-linkedin"><span class="label">Instagram</span></a></li>
-							<li><a href="https://github.com/yosyos1998" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        nav li {
+            margin-left: 25px;
+        }
 
-						
-						<!-- Posts -->
-							<section class="posts">
-								<article >
-									<header class="major">
-										
-										<h2><a href="#"> Real Time Data Streaming Pipeline  <br />
-										</a></h2>
-										<p>
-										 Python / Airflow / Kafka / ETL / Cassandra / Docker </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a -->
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Data-Streaming.git" class="button large">View Project</a></li>
-									</ul>
-								</article>
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
 
-								<article >
-									<header class="major">
-										
-										<h2><a href="#">Twitter Data Pipeline  <br />
-										</a></h2>
-										<p>
-											AWS S3  / Airflow / ETL / Python </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a -->
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Twitter_ETL_Data_Pipeline.git" class="button large">View Project</a></li>
-									</ul>
-								</article>
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
 
-								<!--article >
-									<header class="major">
-										
-										<h2><a href="#"> Call Center Trends Analysis <br />
-										</a></h2>
-										<p>Power BI / Customer Retentions Trends / KPIs  </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a >
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Call_Center_Trends" class="button large">View Project</a></li>
-									</ul>
-								</article-->
-								<article >
-									<header class="major">
-										
-										<h2><a href="#"> HR Data Analytics Dashboard with Power BI  <br />
-										</a></h2>
-										<p>Data Cleaning and Preprocessing / Data Visualization / Modeling / Power BI </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a -->
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/HR_Data_Analysis.git" class="button large">View Project</a></li>
-									</ul>
-								</article>
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-								<article >
-									<header class="major">
-										
-										<h2><a href="#"> COVID 19 Analysis with Tableau and SQL   <br />
-										</a></h2>
-										<p>Data Exploration with SQL / Tableau / SQL Server  </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a -->
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/COVID19_Analysis.git" class="button large">View Project</a></li>
-									</ul>
-								</article>
-								
-								<!--article >
-									<header class="major">
-										
-										<h2><a href="#"> Generative AI copilot  <br />
-										</a></h2>
-										<p>Extraction of raw data from the cloud / Data Cleaning / NLP preprocessing / LLM / Langchain </p>
-									</header>
-									<!-- a href="#" class="image main"><img src="images/pic011.jpg" alt="" /></a -->
-									<!--ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Chatbot.git" class="button large">View Project</a></li>
-									</ul>
-								</article-->
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">Predictive Maintenance <br /></a></h2>
-										<p>Machine Learning / Python / Predictive Analysis / XGBOOST / Random Forest  </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic044.png" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Predictive_Maintenance.git" class="button">View Project</a></li>
-									</ul>
-								</article>
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
 
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">Heart Disease Prediction <br /></a></h2>
-										<p> Python / Machine Learning / Pandas / Seaborn </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic044.png" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Heart_Disease_Prediction.git" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">AI Image Denoising system <br /></a></h2>
-										<p>CNN / Python / Keras / Autoencoders / Computer Vision </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic044.png" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/image_denoising" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">End-To-End DevOps Project<br />
-										</a></h2>
-										<p> Maven / SpringBoot/ Jenkins / SonarQube / Nexux / Docker / Prometheus / Grafana </p>
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
 
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic0333.jpg" alt="" /></a-->
-								
-									<ul class="actions special">
-										<li><a href="https://github.com/YosserK/achat" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header class="major">
-										
-										<h2><a href="#"> Project Management Recommendation System
-											
-										</a></h2>
-										<p>Ontology Learning and semantic Graphs / Natural Language Processing / Graph Neural Networks </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic066.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Conceptual_Graph_Based_Recommendation_System" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header class="major">
-										
-										<h2><a href="#"> Smart Career Center
-										</a></h2>
-										<p>BeautifulSoup / Scrapy / Pandas / Numpy / Clustering / KMeans / Sentence Transformers / Random Forest / LLM / NLP </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic055.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Career_Center_IP" class="button">View Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">Prediction of Chronical Kidney Disease 
-										</a></h2>
-										<p>Predictive Analytics / SVM / KNN / Adaboost </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic055.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/ChronicalKidneyDiseases_Predictor.git" class="button">View Project</a></li>
-									</ul>
-								</article>
+        .hero-content h1 span {
+            color: var(--primary);
+        }
 
-								<article>
-									<header class="major">
-										
-										<h2><a href="#">Anomaly Detection with XGBOOST  
-										</a></h2>
-										<p> NSL KDD dataset/ XGBOOST / GANs / Data Preprocessing / NLP </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic055.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/NVIDIA_Workshops/blob/main/AnomalyDetection_GANs.ipynb" class="button">View Project</a></li>
-									</ul>
-								</article>
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
 
-								<article>
-									<header>
-										
-										<h2><a href="#">AI Yoga Poses Classifier </a></h2>
-										<p>CNN / TensorFlow / Keras / ReLU / max pooling</p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic077.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosrak5/YogaPosesClassification.git" class="button">View Project</a></li>
-									</ul>
-								</article>
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
 
-								<article>
-									<header>
-										
-										<h2><a href="#">Fashion Generator using GANs and Tensorflow  </a></h2>
-										<p>TensorFlow / Python / GAN / mnist Fashion Dataset </p>
-									</header>
-									<!--a href="#" class="image fit"><img src="images/pic077.jpg" alt="" /></a-->
-									
-									<ul class="actions special">
-										<li><a href="https://github.com/yosyos1998/Fashion_GAN.git" class="button">View Project</a></li>
-									</ul>
-								</article>
-							</section>
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
 
-						<!-- Footer -->
-							<footer>
-								
-							</footer>
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
 
-					</div>
+        /* Section Styles */
+        .section {
+            margin: 60px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-				<!-- Footer -->
-					<footer id="footer">
-						
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p> Tunis , Tunisia </p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(+216 )92 536 640 </a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">yosra.karoui@esprit.tn</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-outlook"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-mail-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.linkedin.com/in/yosra-karoui-948594234/" class="icon brands alt fa-linkedin"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/yosyos1998" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-				<!-- Copyright >
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div-->
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
 
-			</div>
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-	</body>
+        /* Footer Styles */
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            background: var(--dark);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 25px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Yosra<span> TheAnalyst</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#projects" class="active">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero animate">
+            <img src="assets\img\yosra_pro.png" alt="Yosra's picture" class="profile-img">
+            <div class="hero-content">
+                <h1><span>About Me!</span></h1>
+                <p>
+                    I’m Yosra Karoui, My journey bridges data engineering and analytics, with hands-on experience in cloud platforms and intelligent data pipelines.
+
+I’ve learned to adapt quickly, connect the dots across tools and systems, and deliver reliable solutions that support operational excellence.
+
+I see data not just as numbers, but as a story waiting to be uncovered , and I love building the systems that make that story accessible.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section animate delay-1">
+            <!-- Content will be loaded from projects.html -->
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section animate delay-2">
+            <!-- Content will be loaded from skills.html -->
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="section animate delay-3">
+            <!-- Content will be loaded from certificates.html -->
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <!-- Content will be loaded from contact.html -->
+        </section>
+
+        <!-- Single Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</li>
+                        <li><i class="fas fa-phone"></i> (+216) 92 536 640</li>
+                        <li><i class="fas fa-envelope"></i> yosra.karoui@esprit.tn</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Me</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About This Site</h3>
+                    <p>This portfolio showcases my work as a data engineer and analyst. Feel free to reach out for collaboration opportunities.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Yosra Karoui. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Function to load external HTML files
+        function loadSection(file, elementId) {
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${file}: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    // Initialize any scripts for the loaded content
+                    initCarousel();
+                })
+                .catch(error => {
+                    console.error('Error loading section:', error);
+                    document.getElementById(elementId).innerHTML = `<div class="error-message">Failed to load content. Please refresh the page.</div>`;
+                });
+        }
+
+        // Initialize carousel functionality
+        function initCarousel() {
+            const carousel = document.querySelector('.carousel-container');
+            if (!carousel) return;
+            
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cardWidth = document.querySelector('.project-card')?.offsetWidth + 25 || 320;
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    carousel.scrollBy({ left: cardWidth * 2, behavior: 'smooth' });
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    carousel.scrollBy({ left: -cardWidth * 2, behavior: 'smooth' });
+                });
+            }
+            
+            // Touch events for mobile swipe
+            let startX;
+            let scrollLeft;
+            
+            carousel.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            
+            carousel.addEventListener('touchmove', function(e) {
+                if (!startX) return;
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Initialize smooth scrolling
+        function initSmoothScrolling() {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active class
+                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Load all sections when page is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSection('projects.html', 'projects');
+            loadSection('skills.html', 'skills');
+            loadSection('certificates.html', 'certificates');
+            loadSection('contact.html', 'contact');
+            
+            // Initialize smooth scrolling for navigation
+            initSmoothScrolling();
+        });
+    </script>
+</body>
 </html>
