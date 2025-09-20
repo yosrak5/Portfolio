@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Professional Journey</title>
+  <title>My Journey</title>
   <style>
     * {
       box-sizing: border-box;
@@ -46,26 +46,27 @@
 
     /* Horizontal timeline container */
     .timeline {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      position: relative;
-      gap: 2rem;
-      overflow-x: auto;
-      padding-bottom: 40px;
-    }
+  display: flex;
+  justify-content: flex-start;   /* don’t use space-between, it breaks the line */
+  align-items: flex-start;
+  position: relative;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 40px;
+}
 
     .timeline::before {
-      content: "";
-      position: absolute;
-      top: 40px;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: #4a90e2;
-      border-radius: 10px;
-      z-index: 0;
-    }
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  height: 6px;
+  width: 100%;                  /* baseline */
+  min-width: 100%;              /* make sure it stretches */
+  background: #4a90e2;
+  border-radius: 10px;
+  z-index: 0;
+}
 
     .timeline-item {
       flex: 0 0 320px;
@@ -84,6 +85,21 @@
       position: relative;
       top: 22px;
       z-index: 2;
+    }
+    
+    /* Education marker style */
+    .timeline-marker.education {
+      background: #fff;
+      border: 4px solid #6c5ce7;
+    }
+    
+    .timeline-marker.education::after {
+      content: "🎓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
     }
 
     /* Diamond marker for future aspirations */
@@ -119,12 +135,23 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       padding: 20px;
       text-align: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .timeline-date {
       font-weight: bold;
       color: #4a90e2;
       margin-bottom: 5px;
+    }
+    
+    /* Education date style */
+    .education-item .timeline-date {
+      color: #6c5ce7;
     }
 
     .timeline-title {
@@ -151,6 +178,13 @@
     .timeline-company img.dassault-logo {
       width: 60px;
       height: 60px;
+    }
+    
+    /* ESPRIT logo */
+    .timeline-company img.esprit-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 5px;
     }
 
     /* Diamond icon styling */
@@ -180,9 +214,11 @@
       color: #6c5ce7;
       font-weight: 600;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     .timeline-company a:hover {
+      color: #4a90e2;
       text-decoration: underline;
     }
 
@@ -203,6 +239,17 @@
       padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.85rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .skill:hover {
+      background-color: #e1ebff;
+    }
+    
+    /* Education skills style */
+    .education-item .skill {
+      background-color: #f0f0ff;
+      color: #6c5ce7;
     }
 
     /* Responsive */
@@ -228,19 +275,41 @@
 <body>
   <div class="container">
     <div class="section-header">
-      <h2>My Professional Journey</h2>
-      <p>A timeline of my career progression and key milestones</p>
+      <h2>My Journey</h2>
+      <p>A timeline of my academic and professional progression and key milestones</p>
     </div>
 
     <div class="timeline">
+      <!-- ESPRIT Education -->
+      <div class="timeline-item education-item">
+        <div class="timeline-marker education"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2019 - 2024</div>
+          <h3 class="timeline-title">Computer Science Engineering</h3>
+          <div class="timeline-company">
+            <img src="assets\img\esprit.png" alt="esprit Logo" class="esprit-logo">
+            <a href="https://www.esprit.tn/" target="_blank">ESPRIT School of Engineering</a>
+          </div>
+          <p class="timeline-description">
+            Graduated with a degree in Computer Science Engineering, specializing in data Science. Developed strong foundations in algorithms, data structures, and machine learning.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill">Algorithms</span>
+            <span class="skill">Data Structures</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Software Engineering</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Dassault Systèmes -->
       <div class="timeline-item">
         <div class="timeline-marker"></div>
         <div class="timeline-content">
-          <div class="timeline-date">2024</div>
+          <div class="timeline-date">Feb 2024 - Aug 2024</div>
           <h3 class="timeline-title">Data Science Intern</h3>
           <div class="timeline-company">
-            <img src="assets/img/dassault.png" alt="Dassault Logo" class="dassault-logo">
+            <img src="assets\img\dassault.png" alt="Dassault Logo" class="dassault-logo">
             <a href="https://www.3ds.com/" target="_blank">Dassault Systèmes</a>
           </div>
           <p class="timeline-description">
@@ -261,10 +330,10 @@
       <div class="timeline-item">
         <div class="timeline-marker"></div>
         <div class="timeline-content">
-          <div class="timeline-date">2025 - Present</div>
+          <div class="timeline-date">Feb 2025 - Present</div>
           <h3 class="timeline-title">Data Analyst</h3>
           <div class="timeline-company">
-            <img src="assets/img/spz.png" alt="Supervizor Logo">
+            <img src="assets\img\spz.png" alt="Supervizor Logo">
             <a href="https://supervizor.com/" target="_blank">Supervizor</a>
           </div>
           <p class="timeline-description">
@@ -283,13 +352,12 @@
 
       <!-- Future -->
       <div class="timeline-item">
-    <div class="timeline-marker"></div>
-
+        <div class="timeline-marker"></div>
         <div class="timeline-content">
           <div class="timeline-date">Ongoing</div>
           <h3 class="timeline-title">Future Aspirations</h3>
           <div class="timeline-company">
-            <span class="future-icon"></span>
+            <!--div class="diamond-icon"></div-->
             <a href="#" target="_blank">Continuous Growth</a>
           </div>
           <p class="timeline-description">
