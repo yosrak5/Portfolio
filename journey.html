@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Professional Journey</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #2d3436;
+      margin-bottom: 15px;
+    }
+
+    .section-header p {
+      color: #636e72;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Horizontal timeline container */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 40px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: #4a90e2;
+      border-radius: 10px;
+      z-index: 0;
+    }
+
+    .timeline-item {
+      flex: 0 0 320px;
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .timeline-marker {
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border: 4px solid #4a90e2;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      position: relative;
+      top: 22px;
+      z-index: 2;
+    }
+
+    /* Diamond marker for future aspirations */
+    .timeline-marker.diamond {
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border: 4px solid #4a90e2;
+      border-radius: 0;
+      transform: rotate(45deg);
+      margin: 0 auto 20px auto;
+      position: relative;
+      top: 22px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Inner diamond for more visual interest */
+    .timeline-marker.diamond::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: #4a90e2;
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+
+    .timeline-content {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: left;
+    }
+
+    .timeline-date {
+      font-weight: bold;
+      color: #4a90e2;
+      margin-bottom: 5px;
+    }
+
+    .timeline-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #2d3436;
+    }
+
+    .timeline-company {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* Default logos */
+    .timeline-company img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    /* Bigger Dassault logo */
+    .timeline-company img.dassault-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    /* Diamond icon styling */
+    .timeline-company .diamond-icon {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #4a90e2 0%, #6c5ce7 100%);
+      transform: rotate(45deg);
+      display: inline-block;
+      position: relative;
+      box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
+    }
+    
+    /* Optional: Add a shine effect to the diamond */
+    .timeline-company .diamond-icon::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+    }
+
+    .timeline-company a {
+      color: #6c5ce7;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .timeline-company a:hover {
+      text-decoration: underline;
+    }
+
+    .timeline-description {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .timeline-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      background-color: #f0f5ff;
+      color: #4a90e2;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .timeline {
+        flex-direction: column;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-marker {
+        top: 0;
+      }
+      
+      .timeline-marker.diamond {
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section-header">
+      <h2>My Professional Journey</h2>
+      <p>A timeline of my career progression and key milestones</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Dassault Systèmes -->
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2024</div>
+          <h3 class="timeline-title">Data Science Intern</h3>
+          <div class="timeline-company">
+            <img src="assets/img/dassault.png" alt="Dassault Logo" class="dassault-logo">
+            <a href="https://www.3ds.com/" target="_blank">Dassault Systèmes</a>
+          </div>
+          <p class="timeline-description">
+            Developed a data integration solution (iPaaS) to extract, transform, and load client data into the 3DEXPERIENCE platform. Designed a dynamic dashboard in Data Perspective Studio for real-time monitoring.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill">iPaaS</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">ETL</span>
+            <span class="skill">SQL Server</span>
+            <span class="skill">Data Factory</span>
+            <span class="skill">Visualization</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supervizor -->
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2025 - Present</div>
+          <h3 class="timeline-title">Data Analyst</h3>
+          <div class="timeline-company">
+            <img src="assets/img/spz.png" alt="Supervizor Logo">
+            <a href="https://supervizor.com/" target="_blank">Supervizor</a>
+          </div>
+          <p class="timeline-description">
+            Leading integration of financial data via intelligent ERP connectors, enabling automated accounting controls and prevention of errors and fraud.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill">SnapLogic</span>
+            <span class="skill">Python</span>
+            <span class="skill">APIs</span>
+            <span class="skill">MS SQL Server</span>
+            <span class="skill">Azure</span>
+            <span class="skill">ERP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future -->
+      <div class="timeline-item">
+    <div class="timeline-marker"></div>
+
+        <div class="timeline-content">
+          <div class="timeline-date">Ongoing</div>
+          <h3 class="timeline-title">Future Aspirations</h3>
+          <div class="timeline-company">
+            <span class="future-icon"></span>
+            <a href="#" target="_blank">Continuous Growth</a>
+          </div>
+          <p class="timeline-description">
+            Expanding expertise in cloud technologies and advanced data engineering tools to stay at the forefront of the field.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill">Cloud</span>
+            <span class="skill">Data Engineering</span>
+            <span class="skill">ETL Tools</span>
+            <span class="skill">Advanced Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

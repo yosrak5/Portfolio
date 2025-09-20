@@ -4,452 +4,375 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827;
-            color: #F9FAFB;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: #333;
             line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 20px;
         }
-
+        
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 40px;
         }
-
+        
         .section-header h2 {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #6366F1, #8B5CF6);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #2d3436;
+            margin-bottom: 10px;
         }
-
+        
         .section-header p {
+            color: #636e72;
             font-size: 1.1rem;
-            color: rgba(249, 250, 251, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
         }
-
+        
         .projects-carousel {
             position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            padding: 10px 0;
         }
-
+        
         .carousel-container {
             display: flex;
             overflow-x: auto;
-            gap: 2rem;
+            scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 1rem 0.5rem;
-            align-items: stretch;
+            -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            padding: 20px 0;
+            gap: 25px;
         }
-
+        
         .carousel-container::-webkit-scrollbar {
             display: none;
         }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .carousel-nav button {
-            background: rgba(99, 102, 241, 0.8);
-            color: #F9FAFB;
-            border: none;
-            border-radius: 4px;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .carousel-nav button:hover {
-            background: #6366F1;
-            transform: translateY(-2px);
-        }
-
+        
         .project-card {
-            flex: 0 0 300px;
+            flex: 0 0 auto;
+            width: 320px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid #dfe6e9;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%);
-            color: #F9FAFB;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            align-items: center;
+            text-align: center;
         }
-
+        
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
-
-        .project-image {
-            position: relative;
-            padding-top: 56.25%;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        
+        .project-icon {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-card-content {
-            padding: 1.5rem;
-            flex-grow: 1;
+            height: 180px;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4a90e2, #6c5ce7);
+            color: white;
+            font-size: 4rem;
         }
-
+        
         .project-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #2d3436;
         }
-
+        
         .project-card h3 a {
             color: inherit;
             text-decoration: none;
         }
-
-        .project-card h3 a:hover {
-            color: #6366F1;
-        }
-
-        .tech {
-            color: rgba(249, 250, 251, 0.8);
+        
+        .project-card .tech {
+            color: #4a90e2;
             font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            color: rgba(249, 250, 251, 0.8);
-        }
-
-        .button {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #0092ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .button:hover {
-            background: #0077cc;
-            transform: translateY(-2px);
-        }
-
-        /* Project Detail Styles */
-        #projectDetail {
-            display: none;
-        }
-
-        .project-detail-card {
-            background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .detail-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .project-detail-content {
-            padding: 2rem;
-        }
-
-        .project-detail-card h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            color: #6366F1;
-            text-decoration: none;
+            margin-bottom: 15px;
             font-weight: 500;
         }
-
-        .back-button:hover {
-            text-decoration: underline;
+        
+        .project-card .button {
+            display: block;
+            text-align: center;
+            background: #4a90e2;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: 100%;
         }
-
-        /* Responsive styles */
+        
+        .project-card .button:hover {
+            background: #6c5ce7;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+            gap: 15px;
+        }
+        
+        .carousel-nav button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .carousel-nav button:hover {
+            background: #6c5ce7;
+        }
+        
+        .carousel-nav button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .indicator-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #bbb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #4a90e2;
+            transform: scale(1.2);
+        }
+        
         @media (max-width: 768px) {
-            .section-header h2 {
-                font-size: 2rem;
+            .carousel-container {
+                gap: 15px;
             }
             
             .project-card {
-                flex: 0 0 280px;
+                width: 280px;
             }
             
-            .detail-image {
-                height: 250px;
+            .carousel-nav button {
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Projects Carousel View -->
-        <div id="projectsView">
-            <div class="section-header">
-                <h2>My Projects</h2>
-                <p>A collection of my recent work showcasing my skills and expertise</p>
+        <div class="section-header">
+            <h2>My Projects</h2>
+            <p>A collection of my recent work showcasing my skills and expertise</p>
+        </div>
+
+        <div class="projects-carousel">
+            <div class="carousel-container" id="carouselContainer">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-stream"></i></div>
+                    <h3><a href="#">Real Time Data Streaming Pipeline</a></h3>
+                    <p class="tech">Python / Airflow / Kafka / ETL / Cassandra / Docker</p>
+                    <a href="https://github.com/yosyos1998/Data-Streaming.git" class="button">View Project</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fab fa-twitter"></i></div>
+                    <h3><a href="#">Twitter Data Pipeline</a></h3>
+                    <p class="tech">AWS S3 / Airflow / ETL / Python</p>
+                    <a href="https://github.com/yosyos1998/Twitter_ETL_Data_Pipeline.git" class="button">View Project</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3><a href="#">HR Data Analytics Dashboard</a></h3>
+                    <p class="tech">Data Cleaning / Data Visualization / Modeling / Power BI</p>
+                    <a href="https://github.com/yosyos1998/HR_Data_Analysis.git" class="button">View Project</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-virus"></i></div>
+                    <h3><a href="#">COVID 19 Analysis</a></h3>
+                    <p class="tech">SQL / Tableau / Data Exploration</p>
+                    <a href="https://github.com/yosyos1998/COVID19_Analysis.git" class="button">View Project</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-tools"></i></div>
+                    <h3><a href="#">Predictive Maintenance</a></h3>
+                    <p class="tech">Machine Learning / Python / XGBOOST / Random Forest</p>
+                    <a href="https://github.com/yosyos1998/Predictive_Maintenance.git" class="button">View Project</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3><a href="#">Heart Disease Prediction</a></h3>
+                    <p class="tech">Python / Machine Learning / Pandas / Seaborn</p>
+                    <a href="https://github.com/yosyos1998/Heart_Disease_Prediction.git" class="button">View Project</a>
+                </div>
             </div>
             
-            <div class="projects-carousel">
-                <div class="carousel-container" id="projectsContainer">
-                    <!-- Project cards will be generated here -->
-                </div>
-                
-                <div class="carousel-nav">
-                    <button id="prevBtn">Previous</button>
-                    <button id="nextBtn">Next</button>
-                </div>
+            <div class="carousel-nav">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button>
+                <button id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
-        
-        <!-- Project Detail View -->
-        <div id="projectDetail">
-            <a href="#" class="back-button" id="backButton">
-                <span class="material-icons" style="vertical-align: middle; margin-right: 0.5rem;">arrow_back</span>
-                Back to Projects
-            </a>
-            <div class="project-detail-card">
-                <!-- Project detail will be generated here -->
+            
+            <div class="indicator-dots" id="indicatorDots">
+                <!-- Dots will be generated by JavaScript -->
             </div>
         </div>
     </div>
 
     <script>
-        // Project data
-        const projectsData = [
-            {
-                id: 1,
-                title: "Real-Time Data Streaming Pipeline",
-                description: "A containerized ETL pipeline for real-time data streaming and processing",
-                detailedDescription: "Designed and implemented a scalable data pipeline that ingests and processes real-time data streams using Apache Kafka. Orchestrated workflows with Apache Airflow, stored processed data in Cassandra for distributed scalability, and containerized the environment with Docker. The project demonstrates strong data engineering skills in building production-ready pipelines.",
-                image: "https://via.placeholder.com/600x400/6366F1/FFFFFF?text=Data+Streaming+Pipeline",
-                technologies: ["Python", "Airflow", "Kafka", "Cassandra", "Docker", "ETL"],
-                features: [
-                    "Real-time data ingestion with Apache Kafka",
-                    "Workflow orchestration using Apache Airflow",
-                    "Scalable distributed storage with Cassandra",
-                    "Containerized deployment with Docker",
-                    "End-to-end ETL (Extract, Transform, Load) processes"
-                ],
-                githubUrl: "https://github.com/yosyos1998/Data-Streaming.git",
-                backgroundColor: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                accentColor: "#764ba2",
-                category: "Data Engineering",
-                status: "Completed",
-                teamSize: 1
-            },
-            {
-                id: 2,
-                title: "Twitter Data Pipeline on AWS",
-                description: "Cloud-native ETL workflow for ingesting and processing Twitter data",
-                detailedDescription: "Built a data pipeline using Apache Airflow to extract, transform, and load Twitter data into AWS S3. This project highlights cloud-native data engineering practices, leveraging Python for data processing and Airflow for orchestration. The solution ensures scalable storage and provides a foundation for advanced analytics.",
-                image: "https://via.placeholder.com/600x400/F093FB/FFFFFF?text=Twitter+Data+Pipeline",
-                technologies: ["Python", "Airflow", "AWS S3", "ETL"],
-                features: [
-                    "Data extraction from Twitter API",
-                    "Automated ETL with Apache Airflow",
-                    "Cloud storage with AWS S3",
-                    "Scalable pipeline architecture"
-                ],
-                githubUrl: "https://github.com/yosyos1998/Twitter_ETL_Data_Pipeline.git",
-                backgroundColor: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-                accentColor: "#f5576c",
-                category: "Cloud Data Engineering",
-                status: "Completed",
-                teamSize: 1
-            },
-            {
-                id: 3,
-                title: "HR Data Analytics Dashboard",
-                description: "Interactive HR dashboard built with Power BI",
-                detailedDescription: "Developed an end-to-end HR analytics solution by cleaning and preprocessing employee datasets, applying data modeling techniques, and building interactive dashboards in Power BI. The project enables HR teams to track workforce trends, monitor performance, and make data-driven decisions.",
-                image: "https://via.placeholder.com/600x400/4FACFE/FFFFFF?text=HR+Analytics+Dashboard",
-                technologies: ["Power BI", "Data Cleaning", "Modeling", "Visualization"],
-                features: [
-                    "Data preprocessing and cleaning",
-                    "Data modeling for HR KPIs",
-                    "Interactive Power BI dashboards",
-                    "Actionable insights for HR decision-making"
-                ],
-                githubUrl: "https://github.com/yosyos1998/HR_Data_Analysis.git",
-                backgroundColor: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-                accentColor: "#00f2fe",
-                category: "Data Analytics",
-                status: "Completed",
-                teamSize: 1
-            },
-            {
-                id: 4,
-                title: "Call Center Trends Analysis",
-                description: "Customer retention and KPI analysis using Power BI",
-                detailedDescription: "Analyzed call center performance data to identify customer retention patterns and key operational KPIs. Designed Power BI dashboards that provided managers with real-time visibility into customer service efficiency, enabling data-driven improvements in customer satisfaction.",
-                image: "https://via.placeholder.com/600x400/43E97B/FFFFFF?text=Call+Center+Analysis",
-                technologies: ["Power BI", "Data Analysis", "Visualization", "KPIs"],
-                features: [
-                    "Customer retention trend analysis",
-                    "Visualization of call center KPIs",
-                    "Power BI interactive dashboards",
-                    "Business-focused insights"
-                ],
-                githubUrl: "https://github.com/yosyos1998/Call_Center_Trends",
-                backgroundColor: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-                accentColor: "#43e97b",
-                category: "Business Intelligence",
-                status: "Completed",
-                teamSize: 1
-            },
-            {
-                id: 5,
-                title: "DevOps CI/CD Pipeline",
-                description: "Comprehensive DevOps pipeline with CI/CD automation, testing, and monitoring",
-                detailedDescription: "This project demonstrates the end-to-end implementation of a DevOps CI/CD pipeline for a Spring Boot backend application. The pipeline automates code retrieval from GitHub, build management with Maven, and deployment through Jenkins. SonarQube enforces code quality, while artifacts are versioned and stored in Nexus3. Docker and Docker Compose handle containerization and multi-container orchestration. Automated testing is performed using JUnit and Mockito to ensure reliability. The monitoring stack with Prometheus and Grafana provides real-time insights, and email notifications alert the team to build status changes. Overall, this pipeline improves development efficiency, reliability, and observability across the application lifecycle.",
-                image: "https://via.placeholder.com/600x400/11998E/FFFFFF?text=DevOps+CI/CD",
-                technologies: ["Jenkins", "Maven", "Spring Boot", "SonarQube", "Nexus3", "Docker", "DockerHub", "Docker Compose", "JUnit", "Mockito", "Prometheus", "Grafana"],
-                features: [
-                    "Automated source code retrieval and build management with GitHub and Maven",
-                    "CI/CD pipeline orchestration using Jenkins",
-                    "Code quality enforcement with SonarQube",
-                    "Artifact versioning and storage in Nexus3",
-                    "Containerization and multi-container orchestration with Docker and Docker Compose",
-                    "Automated testing using JUnit and Mockito",
-                    "Monitoring and visualization with Prometheus and Grafana",
-                    "Email notifications for build status and alerts"
-                ],
-                githubUrl: "https://github.com/yosyos1998/DevOps-CICD.git",
-                backgroundColor: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
-                accentColor: "#11998e",
-                category: "DevOps",
-                status: "Completed",
-                teamSize: 1
-            }
-        ];
-
-        // DOM elements
-        const projectsContainer = document.getElementById('projectsContainer');
-        const projectsView = document.getElementById('projectsView');
-        const projectDetail = document.getElementById('projectDetail');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const backButton = document.getElementById('backButton');
-
-        // Render project cards
-        function renderProjects() {
-            projectsContainer.innerHTML = '';
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carouselContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('indicatorDots');
             
-            projectsData.forEach(project => {
-                const card = document.createElement('div');
-                card.classList.add('project-card');
-                
-                card.innerHTML = `
-                    <div class="project-image">
-                        <img src="${project.image}" alt="${project.title}">
-                    </div>
-                    <div class="project-card-content">
-                        <h3><a href="#" data-id="${project.id}" class="project-link">${project.title}</a></h3>
-                        <p class="tech">${project.technologies.join(" / ")}</p>
-                        <p>${project.description.substring(0, 100)}...</p>
-                        <a href="#" data-id="${project.id}" class="button project-link">Read More</a>
-                    </div>
-                `;
-                
-                projectsContainer.appendChild(card);
-            });
+            const cards = document.querySelectorAll('.project-card');
+            const cardWidth = cards[0].offsetWidth + 25; // width + gap
+            const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+            const totalCards = cards.length;
             
-            // Add event listeners to project links
-            document.querySelectorAll('.project-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = parseInt(this.getAttribute('data-id'));
-                    showProjectDetail(projectId);
+            let currentPosition = 0;
+            let maxScrollPosition = carousel.scrollWidth - carousel.offsetWidth;
+            
+            // Create indicator dots
+            for (let i = 0; i < totalCards - visibleCards + 1; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    scrollToPosition(i);
                 });
-            });
-        }
-
-        // Show project detail
-        function showProjectDetail(projectId) {
-            const project = projectsData.find(p => p.id === projectId);
-            
-            if (project) {
-                projectsView.style.display = 'none';
-                projectDetail.style.display = 'block';
-                
-                const detailCard = document.querySelector('.project-detail-card');
-                detailCard.innerHTML = `
-                    <img src="${project.image}" alt="${project.title}" class="detail-image" />
-                    <div class="project-detail-content">
-                        <h2>${project.title}</h2>
-                        <p class="tech">${project.technologies.join(" / ")}</p>
-                        <p>${project.detailedDescription}</p>
-                        <a href="${project.githubUrl}" target="_blank" class="button">View Code</a>
-                    </div>
-                `;
+                dotsContainer.appendChild(dot);
             }
-        }
-
-        // Back to projects view
-        backButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            projectsView.style.display = 'block';
-            projectDetail.style.display = 'none';
+            
+            const dots = document.querySelectorAll('.dot');
+            
+            // Update button states
+            function updateButtonStates() {
+                prevBtn.disabled = currentPosition === 0;
+                nextBtn.disabled = currentPosition >= totalCards - visibleCards;
+                
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    if (index === currentPosition) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Scroll to specific position
+            function scrollToPosition(position) {
+                currentPosition = position;
+                carousel.scrollTo({
+                    left: position * cardWidth,
+                    behavior: 'smooth'
+                });
+                updateButtonStates();
+            }
+            
+            // Next button event
+            nextBtn.addEventListener('click', () => {
+                if (currentPosition < totalCards - visibleCards) {
+                    scrollToPosition(currentPosition + 1);
+                }
+            });
+            
+            // Previous button event
+            prevBtn.addEventListener('click', () => {
+                if (currentPosition > 0) {
+                    scrollToPosition(currentPosition - 1);
+                }
+            });
+            
+            // Handle scroll events to update position
+            carousel.addEventListener('scroll', () => {
+                const scrollPos = carousel.scrollLeft;
+                currentPosition = Math.round(scrollPos / cardWidth);
+                updateButtonStates();
+            });
+            
+            // Handle keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                }
+            });
+            
+            // Initialize button states
+            updateButtonStates();
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const newCardWidth = cards[0].offsetWidth + 25;
+                const newVisibleCards = Math.floor(carousel.offsetWidth / newCardWidth);
+                
+                if (newVisibleCards !== visibleCards) {
+                    // Recalculate max position and adjust current if needed
+                    maxScrollPosition = carousel.scrollWidth - carousel.offsetWidth;
+                    if (currentPosition > totalCards - newVisibleCards) {
+                        currentPosition = Math.max(0, totalCards - newVisibleCards);
+                    }
+                    scrollToPosition(currentPosition);
+                }
+            });
         });
-
-        // Carousel navigation
-        prevBtn.addEventListener('click', () => {
-            projectsContainer.scrollBy({ left: -350, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            projectsContainer.scrollBy({ left: 350, behavior: 'smooth' });
-        });
-
-        // Initialize
-        renderProjects();
     </script>
 </body>
 </html>

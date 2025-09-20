@@ -1,82 +1,201 @@
-<div class="section-header">
-    <h2>My Skills</h2>
-    <p>Technologies and tools I use to bring ideas to life</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            color: #636e72;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-<div class="skills-grid">
-    <div class="skill-category">
-        <h3>Data Engineering</h3>
-        <ul class="skill-list">
-            <li><i class="fas fa-database"></i> Python</li>
-            <li><i class="fas fa-server"></i> Apache Airflow</li>
-            <li><i class="fas fa-stream"></i> Apache Kafka</li>
-            <li><i class="fas fa-code"></i> ETL Processes</li>
-            <li><i class="fas fa-database"></i> Cassandra</li>
-            <li><i class="fas fa-box"></i> Docker</li>
-        </ul>
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #dfe6e9;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category h3 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dfe6e9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #dfe6e9;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-list li:hover {
+            background-color: #f8f9fa;
+            padding-left: 5px;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list i {
+            color: #00cec9;
+            width: 20px;
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section-header">
+            <h2>My Skills</h2>
+            <p>Technologies and tools I use to bring ideas to life </p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Programming & Scripting -->
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming & Scripting</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-python"></i> Python</li>
+                    <li><i class="fas fa-database"></i> SQL</li>
+                    <li><i class="fas fa-terminal"></i> Bash</li>
+                </ul>
+            </div>
+            
+            <!-- Databases -->
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Databases</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-server"></i> PostgreSQL</li>
+                    <li><i class="fas fa-database"></i> Cassandra</li>
+                    <li><i class="fas fa-database"></i> Oracle</li>
+                </ul>
+            </div>
+            
+            <!-- Data Processing -->
+            <div class="skill-category">
+                <h3><i class="fas fa-cogs"></i> Data Processing</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-bolt"></i> Apache Spark</li>
+                    <li><i class="fas fa-network-wired"></i> Hadoop</li>
+                    <li><i class="fas fa-stream"></i> Apache Kafka</li>
+                    <li><i class="fas fa-table"></i> Pandas</li>
+                </ul>
+            </div>
+            
+            <!-- ETL & Integration -->
+            <div class="skill-category">
+                <h3><i class="fas fa-exchange-alt"></i> ETL & Integration</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-link"></i> SnapLogic</li>
+                    <li><i class="fas fa-tasks"></i> Apache Airflow</li>
+                    <li><i class="fas fa-code-branch"></i> dbt (Data Build Tool)</li>
+                </ul>
+            </div>
+            
+            <!-- Cloud Platforms -->
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-microsoft"></i> Azure</li>
+                    <!--<li><i class="fab fa-google"></i> GCP</li>-->
+                    <li><i class="fab fa-aws"></i> AWS</li>
+                </ul>
+            </div>
+            
+            <!-- Tools & Visualization -->
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Visualization</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-chart-bar"></i> Power BI</li>
+                    <li><i class="fas fa-chart-pie"></i> BI Publisher</li>
+                    <li><i class="fab fa-docker"></i> Docker</li>
+                    <li><i class="fas fa-building"></i> SAP</li>
+                    <li><i class="fab fa-git-alt"></i> Git</li>
+                    <li><i class="fas fa-tasks"></i> Jira</li>
+                    <li><i class="fas fa-sync-alt"></i> CI/CD (Jenkins)</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    
-    <div class="skill-category">
-        <h3>Data Analysis</h3>
-        <ul class="skill-list">
-            <li><i class="fas fa-chart-bar"></i> Power BI</li>
-            <li><i class="fas fa-chart-pie"></i> Tableau</li>
-            <li><i class="fas fa-table"></i> SQL</li>
-            <li><i class="fas fa-calculator"></i> Statistical Analysis</li>
-            <li><i class="fas fa-cloud"></i> AWS S3</li>
-        </ul>
-    </div>
-    
-    <div class="skill-category">
-        <h3>Machine Learning</h3>
-        <ul class="skill-list">
-            <li><i class="fas fa-brain"></i> Predictive Modeling</li>
-            <li><i class="fas fa-robot"></i> XGBOOST</li>
-            <li><i class="fas fa-project-diagram"></i> Neural Networks</li>
-            <li><i class="fas fa-chart-line"></i> Data Preprocessing</li>
-            <li><i class="fas fa-eye"></i> Computer Vision</li>
-            <li><i class="fas fa-language"></i> NLP</li>
-        </ul>
-    </div>
-</div>
-
-<style>
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 25px;
-    }
-
-    .skill-category {
-        background: #f5f6fa;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .skill-category h3 {
-        color: #4a90e2;
-        margin-bottom: 15px;
-        font-size: 1.3rem;
-    }
-
-    .skill-list {
-        list-style: none;
-    }
-
-    .skill-list li {
-        padding: 10px 0;
-        border-bottom: 1px solid #dfe6e9;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .skill-list li:last-child {
-        border-bottom: none;
-    }
-
-    .skill-list i {
-        color: #00cec9;
-    }
-</style>
+</body>
+</html>

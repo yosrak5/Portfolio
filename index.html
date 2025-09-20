@@ -1,473 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yosra Karoui - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4a90e2;
-            --secondary: #6c5ce7;
-            --accent: #00cec9;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --gray: #dfe6e9;
-            --transition: all 0.3s ease;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yosra Karoui - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #6c5ce7;
+      --accent: #00cec9;
+      --dark: #2d3436;
+      --light: #f5f6fa;
+      --gray: #dfe6e9;
+      --transition: all 0.3s ease;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            margin-bottom: 30px;
-        }
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+    .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+    .logo span { color: var(--secondary); }
 
-        .logo span {
-            color: var(--secondary);
-        }
+    nav ul { display: flex; list-style: none; align-items: center; }
+    nav li { margin-left: 25px; }
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    nav a:hover, nav a.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Contact button style */
+    .contact-btn {
+      background-color: var(--primary);
+      color: white !important;
+      padding: 10px 20px !important;
+    }
+    .contact-btn:hover {
+      background-color: var(--secondary) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
-        nav li {
-            margin-left: 25px;
-        }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--dark); }
+    .hero-content h1 span { color: var(--primary); }
+    .hero-content p { font-size: 1.1rem; margin-bottom: 20px; color: #555; }
 
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
+    .social-icons { display: flex; gap: 15px; }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    .social-icons a:hover { background: var(--secondary); transform: translateY(-3px); }
 
-        nav a:hover, nav a.active {
-            background-color: var(--primary);
-            color: white;
-        }
+    /* Sections */
+    .section {
+      margin: 60px 0;
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-header p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 60px;
-            padding: 40px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding: 40px;
+      background: white;
+      color: var(--dark);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .footer-section h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; }
+    .contact-info { list-style: none; }
+    .contact-info li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-info i { color: var(--accent); font-size: 1.2rem; }
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray);
+      color: #666;
+    }
 
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; }
+      .social-icons { justify-content: center; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      nav li { margin: 5px 10px; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 25px; }
+      .hero-content h1 { font-size: 2rem; }
+      .section-header h2 { font-size: 1.8rem; }
+      footer { padding: 25px; }
+    }
 
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .hero-content h1 span {
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Section Styles */
-        .section {
-            margin: 60px 0;
-            padding: 40px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Footer Styles */
-        footer {
-            margin-top: 80px;
-            padding: 40px 0;
-            background: var(--dark);
-            color: white;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .contact-info {
-            list-style: none;
-        }
-
-        .contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .contact-info i {
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .social-icons {
-                justify-content: center;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav li {
-                margin: 5px 10px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .section {
-                padding: 25px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-    </style>
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate { animation: fadeIn 0.8s ease forwards; }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">Yosra<span> TheAnalyst</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#projects" class="active">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+  <div class="container">
+    <header>
+      <div class="logo">Yosra<span> TheAnalyst</span></div>
+      <nav>
+        <ul>
+          <li><a href="#projects" class="active">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#footer" class="contact-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero animate">
-            <img src="assets\img\yosra_pro.png" alt="Yosra's picture" class="profile-img">
-            <div class="hero-content">
-                <h1><span>About Me!</span></h1>
-                <p>
-                    I’m Yosra Karoui, My journey bridges data engineering and analytics, with hands-on experience in cloud platforms and intelligent data pipelines.
+    <section class="hero animate">
+      <img src="assets/img/yosra_pro.png" alt="Yosra's picture" class="profile-img">
+      <div class="hero-content">
+        <h1><span>About Me!</span></h1>
+        <p>
+          I'm Yosra Karoui, My journey bridges data engineering and analytics, with hands-on experience in cloud platforms and intelligent data pipelines.
+          I've learned to adapt quickly, connect the dots across tools and systems, and deliver reliable solutions that support operational excellence.
+          I see data not just as numbers, but as a story waiting to be uncovered , and I love building the systems that make that story accessible.
+        </p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+    <section id="journey" class="section">
+  <!-- The journey content will be loaded here -->
+</section>
 
-I’ve learned to adapt quickly, connect the dots across tools and systems, and deliver reliable solutions that support operational excellence.
+    <section id="projects" class="section animate delay-1"></section>
+    <section id="skills" class="section animate delay-2"></section>
+    <section id="certificates" class="section animate delay-3"></section>
 
-I see data not just as numbers, but as a story waiting to be uncovered , and I love building the systems that make that story accessible.
-                </p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fas fa-envelope"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </section>
+    <!-- Light Footer -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Get In Touch</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</li>
+            <li><i class="fab fa-whatsapp"></i> (+33) 6 79 68 33 25</li>
+            <li><i class="fas fa-envelope"></i> yosra.karoui1@outlook.com</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Me</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/yosra-k-948594234/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/yosrak5"><i class="fab fa-github"></i></a>
+            <!--a href="yosra.karoui1@outlook.com"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a-->
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>About This Site</h3>
+          <p>This portfolio showcases my work as a data engineer and analyst. Feel free to reach out for collaboration opportunities.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Yosra Karoui. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section animate delay-1">
-            <!-- Content will be loaded from projects.html -->
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section animate delay-2">
-            <!-- Content will be loaded from skills.html -->
-        </section>
-
-        <!-- Certificates Section -->
-        <section id="certificates" class="section animate delay-3">
-            <!-- Content will be loaded from certificates.html -->
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <!-- Content will be loaded from contact.html -->
-        </section>
-
-        <!-- Single Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Get In Touch</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</li>
-                        <li><i class="fas fa-phone"></i> (+216) 92 536 640</li>
-                        <li><i class="fas fa-envelope"></i> yosra.karoui@esprit.tn</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Follow Me</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>About This Site</h3>
-                    <p>This portfolio showcases my work as a data engineer and analyst. Feel free to reach out for collaboration opportunities.</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Yosra Karoui. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        // Function to load external HTML files
-        function loadSection(file, elementId) {
-            fetch(file)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to load ${file}: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                    // Initialize any scripts for the loaded content
-                    initCarousel();
-                })
-                .catch(error => {
-                    console.error('Error loading section:', error);
-                    document.getElementById(elementId).innerHTML = `<div class="error-message">Failed to load content. Please refresh the page.</div>`;
-                });
-        }
-
-        // Initialize carousel functionality
-        function initCarousel() {
-            const carousel = document.querySelector('.carousel-container');
-            if (!carousel) return;
-            
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const cardWidth = document.querySelector('.project-card')?.offsetWidth + 25 || 320;
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
-                    carousel.scrollBy({ left: cardWidth * 2, behavior: 'smooth' });
-                });
-            }
-            
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function() {
-                    carousel.scrollBy({ left: -cardWidth * 2, behavior: 'smooth' });
-                });
-            }
-            
-            // Touch events for mobile swipe
-            let startX;
-            let scrollLeft;
-            
-            carousel.addEventListener('touchstart', function(e) {
-                startX = e.touches[0].pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-            });
-            
-            carousel.addEventListener('touchmove', function(e) {
-                if (!startX) return;
-                const x = e.touches[0].pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2;
-                carousel.scrollLeft = scrollLeft - walk;
-            });
-        }
-
-        // Initialize smooth scrolling
-        function initSmoothScrolling() {
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 20,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Update active class
-                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                        this.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Load all sections when page is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSection('projects.html', 'projects');
-            loadSection('skills.html', 'skills');
-            loadSection('certificates.html', 'certificates');
-            loadSection('contact.html', 'contact');
-            
-            // Initialize smooth scrolling for navigation
-            initSmoothScrolling();
+  <script>
+    function loadSection(file, elementId) {
+      fetch(file)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+          if (elementId === 'projects') initCarousel('projects-carousel');
+          else if (elementId === 'certificates') initCarousel('certificates-carousel');
         });
-    </script>
+    }
+
+    function initCarousel(carouselClassName) {
+      const wrapper = document.querySelector(`.${carouselClassName}`);
+      if (!wrapper) return;
+      const carousel = wrapper.querySelector('.carousel-container');
+      const prevBtn = wrapper.querySelector('button[id^="prev"]');
+      const nextBtn = wrapper.querySelector('button[id^="next"]');
+      const card = carousel.querySelector('.project-card, .certificate-card');
+      if (!card) return;
+      const cardWidth = card.offsetWidth + 25;
+
+      nextBtn?.addEventListener('click', () => carousel.scrollBy({ left: cardWidth, behavior: 'smooth' }));
+      prevBtn?.addEventListener('click', () => carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' }));
+    }
+
+    function initSmoothScrolling() {
+      document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if (target) {
+            window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // In your existing script
+document.addEventListener('DOMContentLoaded', function() {
+  loadSection('journey.html', 'journey');
+  loadSection('projects.html', 'projects');
+  loadSection('skills.html', 'skills');
+  loadSection('certificates.html', 'certificates');
+  initSmoothScrolling();
+});
+  </script>
 </body>
 </html>
